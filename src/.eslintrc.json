@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "node": false,
+    "es6": false
+  },
+  "globals": {
+    "excellent": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-else-return": "error",
+    "no-multi-spaces": "error",
+    "no-whitespace-before-property": "error",
+    "camelcase": "error",
+    "new-cap": "error",
+    "no-console": "error",
+    "comma-dangle": "error",
+    "no-shadow": "error",
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
+}
