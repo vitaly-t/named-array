@@ -1,15 +1,15 @@
 {
   "name": "named-array",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Access array elements via names",
-  "main": "./src/named-array.js",
+  "main": "src/named-array.js",
   "scripts": {
     "lint": "gulp lint",
     "build": "gulp build"
   },
   "files": [
-    "./src/named-array.js",
-    "./src/named-array.min.js"
+    "src/named-array.js",
+    "src/named-array.min.js"
   ],
   "homepage": "https://github.com/vitaly-t/named-array",
   "repository": {
