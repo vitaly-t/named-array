@@ -2,15 +2,14 @@
     'use strict';
 
     if (!('addProperties' in Array.prototype)) {
-        Array.prototype.addProperties = addProperties;
+        Object.defineProperty(Array.prototype, 'addProperties', {value: addProperties});
     }
 
     if (!('toNamedArray' in Object.prototype)) {
-        Object.prototype.toNamedArray = toNamedArray;
+        Object.defineProperty(Object.prototype, 'toNamedArray', {value: toNamedArray});
     }
 
     /**
-     *
      * @param {} [options]
      * Property options
      *
@@ -30,7 +29,6 @@
     }
 
     /**
-     *
      * @param props
      *
      * @param {} [options]
@@ -49,18 +47,23 @@
         if (props.length > this.length) {
             throw new TypeError('Number of properties (' + props.length + ') exceeds the target array length (' + this.length + ')');
         }
+        var opt = {
+            configurable: (options && 'configurable' in options) ? options.configurable : true,
+            enumerable: (options && 'enumerable' in options) ? options.enumerable : false,
+            writable: (options && 'writable' in options) ? options.writable : false
+        };
         props.forEach(function (p, idx) {
             if (p in this) {
                 throw new Error('Cannot add property ' + JSON.stringify(p) + ', as it already exists.');
             }
             var config = {
-                configurable: options && options.configurable,
-                enumerable: options && options.enumerable,
+                configurable: opt.configurable,
+                enumerable: opt.enumerable,
                 get: function () {
                     return this[idx];
                 }
             };
-            if (options && options.writable) {
+            if (opt.writable) {
                 config.set = function (newValue) {
                     return this[idx] = newValue;
                 };
