@@ -11,6 +11,8 @@ Works in all browsers and Node.js versions.
 $ npm install named-array
 ```
 
+To rebuild `src/named-array.min.js`, install the dependencies and then run `npm run build`.
+
 # Usage
 
 * In a web browser
@@ -50,7 +52,7 @@ exists on the array object, an error will be thrown. For example, you cannot add
 **Parameters**
 
 * `props` - array of strings, with names for the properties
-* `[options] = {[configurable], [enumerable], [writable]}`, with the same meaning and defaults as for [Object.defineProperty].
+* `[options] = {[configurable=true], [enumerable=false], [writable=false]}`, with the same meaning and defaults as for [Object.defineProperty].
 
 ### `Object.prototype.toNamedArray([options]) => Array`
 
@@ -58,7 +60,7 @@ Converts an object into a named array.
 
 **Parameters**
 
-* `[options] = {[configurable], [enumerable], [writable]}`, with the same meaning and defaults as for [Object.defineProperty].
+* `[options] = {[configurable=true], [enumerable=false], [writable=false]}`, with the same meaning and defaults as for [Object.defineProperty].
 
 [Object.defineProperty]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
 [Array API]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
